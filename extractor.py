@@ -1,16 +1,24 @@
 import re
 
+# --- オプション設定 ----------------------------------
 input_file = 'input.txt'
 output_file = 'output.txt'
-quotation_mark = r'「.+?」'        # 英文用 r'\".+?\"'
 encoding = 'utf-8'
-is_translate = True              # 台詞内の文字変換
+
+# クオーテーションマークの設定。( 英文用 r'\".+?\"' )
+quotation_mark = r'「.+?」'
+
+# 台詞内の文字変換
+is_translate = True
+
+# 変換する文字列
 translate_symbols = str.maketrans({
     # '変換元の文字列': '変換先の文字列',
     '。': '。\n',
     '!': '!\n',
     '?': '?\n'
 })
+# ---------------------------------------------------
 
 
 def main():
