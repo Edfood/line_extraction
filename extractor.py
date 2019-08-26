@@ -12,12 +12,14 @@ quotation_mark = r'「.+?」'
 is_translate = True
 
 # 変換する文字列
-translate_symbols = str.maketrans({
+replace_symbols = {
     # '変換元の文字列': '変換先の文字列',
-    '。': '。\n',
+    '。': '\n',
     '!': '!\n',
-    '?': '?\n'
-})
+    '?': '?\n',
+    '……': '...',
+    'ーーー': ''
+}
 # ---------------------------------------------------
 
 
@@ -34,7 +36,8 @@ def main():
                 newline = ''
 
                 if is_translate:
-                    m = m.translate(translate_symbols)
+                    for key, value in replace_symbols.items():
+                        m = m.replace(key, value)
 
                 if m[:-1] != '\n':
                     newline = '\n'
