@@ -1,4 +1,4 @@
-# line-extraction
+# line_extraction
 文章内の台詞を抽出するスクリプト
 
 
